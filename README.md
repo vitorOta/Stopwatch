@@ -1,2 +1,2 @@
-# Timer
+# Stopwatch
 Android app

@@ -41,7 +41,7 @@ class StopWatchFragment : Fragment() {
 
     fun setupObservers() {
         viewModel.stopwatch.observe(this, Observer {
-            tvStopwatch.text = "${it.remainingSeconds}"
+            vwSopwatch.seconds = it.remainingSeconds
             if (it.isStarted) {
                 configViewIsStarted()
             } else {

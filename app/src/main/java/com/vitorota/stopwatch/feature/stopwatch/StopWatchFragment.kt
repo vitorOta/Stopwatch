@@ -11,16 +11,16 @@ import com.vitorota.stopwatch.R
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
 
 class StopWatchFragment : Fragment() {
-
-    private lateinit var viewModel: StopwatchViewModel
+    //TODO understand why viewModel is being always recreated
+    private val viewModel: StopwatchViewModel by lazy {
+        ViewModelProviders.of(this).get(StopwatchViewModel::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_stopwatch, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProviders.of(this).get(StopwatchViewModel::class.java)
-
         setupView()
         setupObservers()
     }
@@ -39,8 +39,9 @@ class StopWatchFragment : Fragment() {
         bStart.setOnClickListener { viewModel.startStopwatch() }
     }
 
+
     fun setupObservers() {
-        viewModel.stopwatch.observe(this, Observer {
+        viewModel.stopwatch.observe(viewLifecycleOwner, Observer {
             tvStopwatch.text = "${it.remainingSeconds}"
             if (it.isStarted) {
                 configViewIsStarted()

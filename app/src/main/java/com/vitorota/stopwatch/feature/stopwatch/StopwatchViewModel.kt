@@ -9,11 +9,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class StopwatchViewModel : ViewModel() {
-    private val _stopwatch = MutableLiveData<Stopwatch>().apply {
-        value =
+    private val _stopwatch = MutableLiveData<Stopwatch>()
+    val stopwatch: LiveData<Stopwatch> = _stopwatch
+
+    init {
+        _stopwatch.value =
             Stopwatch()
     }
-    val stopwatch: LiveData<Stopwatch> = _stopwatch
 
 
     fun setSeconds(seconds: Int) {

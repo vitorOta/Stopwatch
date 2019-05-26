@@ -40,10 +40,8 @@ class StopWatchFragment : Fragment() {
         etValue.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 bOk.performClick()
-                true
-            } else {
-                false
             }
+            false
         }
         bStart.setOnClickListener { viewModel.startStopwatch() }
     }

@@ -5,12 +5,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusable="true"
+        android:clickable="true"
         tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
@@ -19,7 +21,10 @@
             android:id="@+id/etValue"
             android:inputType="number"
             android:imeOptions="actionDone"
-            android:hint="@string/etValue_hint"/>
+            android:hint="@string/etValue_hint"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/bStart"
+            app:layout_constraintVertical_bias="1.0"/>
 
 
     <Button
@@ -29,31 +34,88 @@
             android:id="@+id/bOk"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etValue"
+            app:layout_constraintVertical_bias="0.0"/>
 
     <com.vitorota.stopwatch.feature.stopwatch.StopwatchView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/vwSopwatch"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="8dp"
+            android:layout_height="@dimen/stopwatch_extraLarge"
+            android:id="@+id/vwStopwatch"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/etValue"/>
+            app:layout_constraintTop_toBottomOf="@+id/sbSize"
+            android:layout_marginTop="16dp"/>
 
     <Button
             android:text="@string/bStart_enabled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bStart"
-            app:layout_constraintTop_toBottomOf="@+id/vwSopwatch"
-            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/vwStopwatch"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"/>
+
+    <ImageButton
+            android:layout_width="@dimen/option_buttonsSize"
+            android:layout_height="@dimen/option_buttonsSize"
+            app:srcCompat="@drawable/ic_color_lens_black_24dp"
+            android:id="@+id/bColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="8dp"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+    <ImageButton
+            android:layout_width="@dimen/option_buttonsSize"
+            android:layout_height="@dimen/option_buttonsSize"
+            app:srcCompat="@drawable/ic_format_size_black_24dp"
+            android:id="@+id/bSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/bSize_description"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+    <com.divyanshu.colorseekbar.ColorSeekBar
+            android:id="@+id/colorPicker"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_width="0dp"
+            android:focusable="true"
+            android:contentDescription="@string/bColor_description"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/bColor"
+            />
+
+    <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:progress="4"
+            android:id="@+id/sbSize"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/colorPicker"
+            android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

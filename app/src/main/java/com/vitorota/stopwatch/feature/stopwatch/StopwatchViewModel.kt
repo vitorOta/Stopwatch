@@ -12,11 +12,33 @@ class StopwatchViewModel : ViewModel() {
     private val _stopwatch = MutableLiveData<Stopwatch>()
     val stopwatch: LiveData<Stopwatch> = _stopwatch
 
+    private val _color = MutableLiveData<Int>()
+    /** the color of the Stopwatch */
+    val color: LiveData<Int> = _color
+
+    private val _size = MutableLiveData<Int>()
+    /** the size (in px) of the Stopwatch */
+    val size: LiveData<Int> = _size
+
     init {
         _stopwatch.value =
             Stopwatch()
     }
 
+
+    /**
+     * set the color of the Stopwatch
+     */
+    fun setColor(color: Int) {
+        this._color.value = color
+    }
+
+    /**
+     * set the size (in px) of the Stopwatch
+     */
+    fun setSize(size: Int) {
+        this._size.value = size
+    }
 
     fun setSeconds(seconds: Int) {
         _stopwatch.value = _stopwatch.value?.apply {

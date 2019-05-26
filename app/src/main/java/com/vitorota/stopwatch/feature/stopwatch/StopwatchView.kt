@@ -50,29 +50,29 @@ class StopwatchView @JvmOverloads constructor(
         seconds.toString().split("").filter { it.isNotEmpty() }.take(3).map { it.toInt() }.forEachIndexed { i, digit ->
             when (i) {
                 0 -> {
-                    stopwatch_digit0.setImageResource(getDigitDrawable(digit))
+                    stopwatch_first.setImageResource(getDigitDrawable(digit))
                     firstVisible = true
                 }
                 1 -> {
-                    stopwatch_digit1.setImageResource(getDigitDrawable(digit))
+                    stopwatch_second.setImageResource(getDigitDrawable(digit))
                     secondVisible = true
                 }
                 2 -> {
-                    stopwatch_digit2.setImageResource(getDigitDrawable(digit))
+                    stopwatch_third.setImageResource(getDigitDrawable(digit))
                     thirdVisible = true
                 }
             }
         }
 
-        stopwatch_digit0.apply {
+        stopwatch_first.apply {
             isVisible = firstVisible
             imageTintList = ColorStateList.valueOf(color)
         }
-        stopwatch_digit1.apply {
+        stopwatch_second.apply {
             isVisible = secondVisible
             imageTintList = ColorStateList.valueOf(color)
         }
-        stopwatch_digit2.apply {
+        stopwatch_third.apply {
             isVisible = thirdVisible
             imageTintList = ColorStateList.valueOf(color)
         }

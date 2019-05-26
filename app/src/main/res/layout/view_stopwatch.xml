@@ -8,19 +8,19 @@
               android:layout_height="wrap_content">
 
     <ImageView
-            android:id="@+id/stopwatch_digit0"
+            android:id="@+id/stopwatch_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>
 
     <ImageView
-            android:id="@+id/stopwatch_digit1"
+            android:id="@+id/stopwatch_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>
 
     <ImageView
-            android:id="@+id/stopwatch_digit2"
+            android:id="@+id/stopwatch_third"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>

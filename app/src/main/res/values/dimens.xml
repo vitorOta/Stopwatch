@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="option_buttonsSize">40dp</dimen>
+
+    <dimen name="stopwatch_extraSmall">40dp</dimen>
+    <dimen name="stopwatch_small">80dp</dimen>
+    <dimen name="stopwatch_medium">120dp</dimen>
+    <dimen name="stopwatch_large">160dp</dimen>
+    <dimen name="stopwatch_extraLarge">200dp</dimen>
+
+</resources>

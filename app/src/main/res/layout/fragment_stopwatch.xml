@@ -18,6 +18,7 @@
             app:layout_constraintEnd_toStartOf="@+id/bOk"
             android:id="@+id/etValue"
             android:inputType="number"
+            android:imeOptions="actionDone"
             android:hint="@string/etValue_hint"/>
 
 

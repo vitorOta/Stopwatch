@@ -1,7 +1,7 @@
 package com.vitorota.stopwatch.feature.stopwatch
 
 import android.content.Context
-import android.graphics.Color
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
@@ -23,7 +23,7 @@ class StopwatchView @JvmOverloads constructor(
         private set
 
     @ColorInt
-    var color: Int = Color.BLACK
+    var color: Int = context.resources.getColor(R.color.colorAccent)
         private set
 
     init {
@@ -66,19 +66,22 @@ class StopwatchView @JvmOverloads constructor(
 
         stopwatch_digit0.apply {
             isVisible = firstVisible
+            imageTintList = ColorStateList.valueOf(color)
         }
         stopwatch_digit1.apply {
             isVisible = secondVisible
+            imageTintList = ColorStateList.valueOf(color)
         }
         stopwatch_digit2.apply {
             isVisible = thirdVisible
+            imageTintList = ColorStateList.valueOf(color)
         }
         requestLayout()
         invalidate()
     }
 
     @DrawableRes
-    private fun getDigitDrawable(digit: Int): Int =
+    private fun getDigitDrawable(digit: Int) =
         when (digit) {
             0 -> R.drawable.zero
             1 -> R.drawable.one
@@ -92,5 +95,4 @@ class StopwatchView @JvmOverloads constructor(
             9 -> R.drawable.nine
             else -> R.drawable.zero
         }
-
 }

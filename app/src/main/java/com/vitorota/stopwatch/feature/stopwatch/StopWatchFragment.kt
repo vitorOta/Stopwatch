@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -36,6 +37,14 @@ class StopWatchFragment : Fragment() {
             viewModel.setSeconds(seconds)
         }
 
+        etValue.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                bOk.performClick()
+                true
+            } else {
+                false
+            }
+        }
         bStart.setOnClickListener { viewModel.startStopwatch() }
     }
 

@@ -10,21 +10,18 @@
     <ImageView
             android:id="@+id/stopwatch_digit0"
             android:layout_width="wrap_content"
-            android:tintMode="screen"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>
 
     <ImageView
             android:id="@+id/stopwatch_digit1"
             android:layout_width="wrap_content"
-            android:tintMode="screen"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>
 
     <ImageView
             android:id="@+id/stopwatch_digit2"
             android:layout_width="wrap_content"
-            android:tintMode="screen"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/zero"/>
 </LinearLayout>

@@ -5,43 +5,43 @@
         android:viewportHeight="200">
     <path
             android:pathData="M20,40L30,30L40,40L40,80L30,90L20,80ZM20,40"
-            android:fillColor="@color/partDisabled"
-            android:fillAlpha="1"
+            android:fillColor="@android:color/black"
+            android:fillAlpha="@fraction/digit_parts_alpha"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M31.5,28.5L41.5,18.5L73.5,18.5L83.5,28.5L73.5,38.5L41.5,38.5ZM31.5,28.5"
-            android:fillColor="@color/partDisabled"
-            android:fillAlpha="1"
+            android:fillColor="@android:color/black"
+            android:fillAlpha="@fraction/digit_parts_alpha"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M75,40L85,30L95,40L95,80L85,90L75,80ZM75,40"
-            android:fillColor="@color/partEnabled"
+            android:fillColor="@android:color/black"
             android:fillAlpha="1"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M31.5,91.5L41.5,81.5L73.5,81.5L83.5,91.5L73.5,102L41.5,102ZM31.5,91.5"
-            android:fillColor="@color/partDisabled"
-            android:fillAlpha="1"
+            android:fillColor="@android:color/black"
+            android:fillAlpha="@fraction/digit_parts_alpha"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M20,103L30,93.5L40,103.5L40,143.5L30,153.5L20,143.5ZM20,103"
-            android:fillColor="@color/partDisabled"
-            android:fillAlpha="1"
+            android:fillColor="@android:color/black"
+            android:fillAlpha="@fraction/digit_parts_alpha"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M31.5,155L41.5,145L73.5,145L83.5,155L73.5,165L41.5,165ZM31.5,155"
-            android:fillColor="@color/partDisabled"
-            android:fillAlpha="1"
+            android:fillColor="@android:color/black"
+            android:fillAlpha="@fraction/digit_parts_alpha"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>
     <path
             android:pathData="M75,103L84.5,93.5L95,103.5L95,143.5L85,153.5L75,143.5ZM75,103"
-            android:fillColor="@color/partEnabled"
+            android:fillColor="@android:color/black"
             android:fillAlpha="1"
             android:fillType="nonZero"
             android:strokeColor="#00000000"/>

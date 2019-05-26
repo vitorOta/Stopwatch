@@ -41,7 +41,7 @@ class StopWatchFragment : Fragment() {
 
     fun setupObservers() {
         viewModel.stopwatch.observe(this, Observer {
-            vwSopwatch.seconds = it.remainingSeconds
+            vwSopwatch.setSeconds(it.remainingSeconds)
             if (it.isStarted) {
                 configViewIsStarted()
             } else {

@@ -5,7 +5,10 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import com.vitorota.stopwatch.R
+import kotlinx.android.synthetic.main.view_stopwatch.view.*
 
 
 class StopwatchView @JvmOverloads constructor(
@@ -17,35 +20,65 @@ class StopwatchView @JvmOverloads constructor(
     LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     var seconds: Int = 0
-//        set(value) {
-//            seconds = value
-//            updateView()
-//        }
+        private set
 
     @ColorInt
     var color: Int = Color.BLACK
-        set(value) {
-            color = value
-            updateView()
-        }
+        private set
 
     init {
         inflate(context, R.layout.view_stopwatch, this)
+        updateView()
     }
 
-    private fun updateView() {
-        invalidate()
+    fun setSeconds(seconds: Int) {
+        this.seconds = seconds
+        updateView()
+    }
+
+    fun setColor(color: Int) {
+        this.color = color
+        updateView()
+    }
+
+
+    fun updateView() {
+        var firstVisible = false
+        var secondVisible = false
+        var thirdVisible = false
+
+        seconds.toString().split("").filter { it.isNotEmpty() }.take(3).map { it.toInt() }.forEachIndexed { i, digit ->
+            when (i) {
+                0 -> {
+                    stopwatch_digit0.setImageResource(getDigitDrawable(digit))
+                    firstVisible = true
+                }
+                1 -> {
+                    stopwatch_digit1.setImageResource(getDigitDrawable(digit))
+                    secondVisible = true
+                }
+                2 -> {
+                    stopwatch_digit2.setImageResource(getDigitDrawable(digit))
+                    thirdVisible = true
+                }
+            }
+        }
+
+        stopwatch_digit0.apply {
+            isVisible = firstVisible
+        }
+        stopwatch_digit1.apply {
+            isVisible = secondVisible
+        }
+        stopwatch_digit2.apply {
+            isVisible = thirdVisible
+        }
         requestLayout()
-//        seconds.toString().split("").take(3)?.map { it.toInt() }.forEachIndexed { i, str ->
-//            when (i) {
-//                0 -> stopwatch_digit0.setImageDrawable(getDigitDrawable(i))
-//                1 -> stopwatch_digit1.setImageDrawable(getDigitDrawable(i))
-//                2 -> stopwatch_digit2.setImageDrawable(getDigitDrawable(i))
-//            }
-//        }
+        invalidate()
     }
 
-    private fun getDigitDrawable(digit: Int) = context.getDrawable(
+    @DrawableRes
+    private fun getDigitDrawable(digit: Int): Int =
         when (digit) {
             0 -> R.drawable.zero
             1 -> R.drawable.one
@@ -59,5 +92,5 @@ class StopwatchView @JvmOverloads constructor(
             9 -> R.drawable.nine
             else -> R.drawable.zero
         }
-    )
+
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.vitorota.stopwatch.feature.stopwatch.view.DigitSize
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -16,9 +17,9 @@ class StopwatchViewModel : ViewModel() {
     /** the color of the Stopwatch */
     val color: LiveData<Int> = _color
 
-    private val _size = MutableLiveData<Int>()
+    private val _size = MutableLiveData<DigitSize>()
     /** the size (in px) of the Stopwatch */
-    val size: LiveData<Int> = _size
+    val size: LiveData<DigitSize> = _size
 
     init {
         _stopwatch.value =
@@ -34,9 +35,9 @@ class StopwatchViewModel : ViewModel() {
     }
 
     /**
-     * set the size (in px) of the Stopwatch
+     * set the size of the Stopwatch
      */
-    fun setSize(size: Int) {
+    fun setSize(size: DigitSize) {
         this._size.value = size
     }
 

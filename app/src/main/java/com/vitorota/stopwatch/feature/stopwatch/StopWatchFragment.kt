@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.SeekBar
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.divyanshu.colorseekbar.ColorSeekBar
 import com.vitorota.stopwatch.R
+import com.vitorota.stopwatch.feature.stopwatch.view.DigitSize
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
 
 class StopWatchFragment : Fragment() {
@@ -65,20 +64,18 @@ class StopWatchFragment : Fragment() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
 
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val newHeight = context!!.resources.getDimensionPixelSize(
-                    when (progress) {
-                        0 -> R.dimen.stopwatch_extraSmall
-                        1 -> R.dimen.stopwatch_small
-                        2 -> R.dimen.stopwatch_medium
-                        3 -> R.dimen.stopwatch_large
-                        4 -> R.dimen.stopwatch_extraLarge
-                        else -> R.dimen.stopwatch_extraLarge
 
-                    }
-                )
+                val digitSize = when (progress) {
+                    0 -> DigitSize.EXTRA_SMALL
+                    1 -> DigitSize.SMALL
+                    2 -> DigitSize.MEDIUM
+                    3 -> DigitSize.LARGE
+                    4 -> DigitSize.EXTRA_LARGE
+                    else -> DigitSize.EXTRA_LARGE
+                }
 
                 //update size in viewModel
-                viewModel.setSize(newHeight)
+                viewModel.setSize(digitSize)
             }
 
         })
@@ -106,7 +103,7 @@ class StopWatchFragment : Fragment() {
         })
 
         viewModel.size.observe(this, Observer {
-            vwStopwatch.updateLayoutParams<ConstraintLayout.LayoutParams> { height = it }
+            vwStopwatch.setDigitSize(it)
         })
     }
 

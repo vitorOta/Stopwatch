@@ -22,9 +22,7 @@
             android:inputType="number"
             android:imeOptions="actionDone"
             android:hint="@string/etValue_hint"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/bStart"
-            app:layout_constraintVertical_bias="1.0"/>
+            />
 
 
     <Button
@@ -48,25 +46,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
             app:layout_constraintTop_toBottomOf="@+id/sbSize"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/bStart"
+            app:layout_constraintVertical_bias="1.0"/>
 
     <Button
             android:text="@string/bStart_enabled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bStart"
-            app:layout_constraintTop_toBottomOf="@+id/vwStopwatch"
-            android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintBottom_toTopOf="@+id/etValue"/>
 
     <ImageButton
             android:layout_width="@dimen/option_buttonsSize"
             android:layout_height="@dimen/option_buttonsSize"
             app:srcCompat="@drawable/ic_color_lens_black_24dp"
             android:id="@+id/bColor"
+            android:contentDescription="@string/bColor_description"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"

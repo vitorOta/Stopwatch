@@ -1,2 +1,2 @@
 # Stopwatch
-Android app
+An android simple app to practice

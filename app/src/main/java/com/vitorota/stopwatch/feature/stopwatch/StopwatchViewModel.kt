@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vitorota.stopwatch.feature.stopwatch.view.DigitSize
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -69,7 +70,7 @@ class StopwatchViewModel : ViewModel() {
     }
 
     suspend fun subtractOneSecond() = withContext(Dispatchers.Default) {
-        Thread.sleep(1_000)
+        delay(1_000)
         _stopwatch.postValue(_stopwatch.value?.apply { tick() })
     }
 }
